@@ -1,35 +1,16 @@
 use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
+/*
+Задачи для решения:
+
+- Конвертирует температуру из градусов по Фаренгейту в градусы Цельсия и наоборот.
+- Генерирует n-е число Фибоначчи.
+- Выводит текст рождественской песни «Двенадцать дней Рождества» (The Twelve Days of Christmas),
+пользуясь повторами в песне. Текст внутри текстового файла.
+
+ */
 
 fn main() {
-    let secret = rand::thread_rng().gen_range(1..101);
 
-    println!("Угадайте число!");
-
-    loop {
-        println!("Пожалуйста, введите свою догадку: ");
-
-        let mut guess = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Не получилось прочитать строку!");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        println!("Вы загадали: {}", guess);
-
-        match guess.cmp(&secret) {
-            Ordering::Less => println!("Слишком малое число!"),
-            Ordering::Greater => println!("Слишком большое число!"),
-            Ordering::Equal => {
-                println!("Вы выиграли!");
-                break;
-            }
-        }
-    }
 }
+
+
